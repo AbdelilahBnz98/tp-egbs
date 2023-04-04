@@ -1,0 +1,505 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="CSA_Clementine1.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+
+    <%--<link rel="stylesheet" href="style.css" />
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' />--%>
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>SCA la Clementine</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="./assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="./assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="./assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="./assets/vendors/select2/select2.min.css" />
+    <link rel="stylesheet" href="./assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css" />
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="./assets/css/demo_2/style.css" />
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="./assets/images/favicon.png" />
+
+
+    <style>
+        .req {
+            color: red;
+        }
+
+        .card-header {
+            padding: 2px;
+            padding-left: 10px;
+        }
+
+            .card-header > h3 {
+                margin: 0px;
+            }
+
+        .card-footer {
+            padding: 2px;
+            padding-left: 10px;
+        }
+
+        .breadcrumb {
+            margin: 5px;
+        }
+
+        .row {
+            margin-bottom: 5px;
+        }
+        .lbl-numerique{
+            display:block;
+            text-align:right;
+        }
+        select.form-control{
+            color:black;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="overflow: visible">
+
+
+    <form id="form1" runat="server">
+
+        <div class="container-fluid">
+            <%--<div class="horizontal-menu">
+
+                <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+                    <div class="container-fluid">
+                        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                            <a class="navbar-brand brand-logo" href="../../accueil.aspx">
+                                <img src="../../../assets/images/logo.png" alt="logo" />
+                                <span class="font-12 d-block font-weight-light">SCA la Clementine </span>
+                            </a>
+                            <a class="navbar-brand brand-logo-mini" href="../../accueil.aspx">
+                                <img src="../../../assets/images/logo-mini.png" alt="logo" /></a>
+                        </div>
+                        <div class="navbar-menu-wrapper d-flex align-items-baseline justify-content-end">
+
+                            <ul class="navbar-nav navbar-nav-right">
+                                <li class="nav-item nav-profile dropdown">
+                                    <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                                        <div class="nav-profile-text">
+                                            <p class="text-black font-weight-semibold m-0">
+                                                <asp:Label runat="server" ID="txtEntete" Text="-" />
+                                            </p>
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="authentification.aspx">
+                                            <i class="mdi mdi-logout mr-2 text-primary"></i>Fermer la session </a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+                                <span class="mdi mdi-menu"></span>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+                <div class="bottom-navbar">
+                    <div class="container-fluid">
+                        <ul class="nav page-navigation">
+                            <li class="nav-item">
+                                <a class="nav-link" href="accueil.aspx">
+                                    <i class="mdi mdi-compass-outline menu-icon"></i>
+                                    <span class="menu-title">Dashboard</span>
+                                </a>
+                            </li>
+                            <%=MenuItems %>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>--%>
+
+            <div class="horizontal-menu">
+
+                <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+                    <div class="container-fluid">
+                        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                            <a class="navbar-brand brand-logo" href="../../accueil.aspx">
+                                <img src="../../../assets/images/logo.png" alt="logo" />
+                                <span class="font-12 d-block font-weight-light">SCA la Clementine </span>
+                            </a>
+                            <a class="navbar-brand brand-logo-mini" href="../../accueil.aspx">
+                                <img src="../../../assets/images/logo-mini.png" alt="logo" /></a>
+                        </div>
+                        <div class="navbar-menu-wrapper d-flex align-items-start justify-content-end">
+
+                            <ul class="navbar-nav navbar-nav-right">
+                                <li class="nav-item nav-profile dropdown">
+                                    <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                                        <div class="nav-profile-text">
+                                            <p class="text-black font-weight-semibold m-0">
+                                                <asp:Label runat="server" ID="txtEntete" Text="-" />
+                                            </p>
+
+                                        </div>
+                                    </a>
+                                    <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="authentification.aspx">
+                                            <i class="mdi mdi-logout mr-2 text-primary"></i>Fermer la session </a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+                                <span class="mdi mdi-menu"></span>
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+                <div class="bottom-navbar">
+                    <div class="horizontal-menu">
+                        <div class="bottom-navbar">
+                            <div class="container-fluid">
+                                <ul class="nav page-navigation">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="accueil.aspx">
+                                            <i class="mdi mdi-compass-outline menu-icon"></i>
+                                            <span class="menu-title">Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <%=MenuItems %>
+                                    <%--<li class='nav-item'>
+                                        <a href='#' class='nav-link'>
+                                            <i class='mdi mdi-monitor-dashboard menu-icon'></i>
+                                            <span class='menu-title'>Gestion commerciale</span>
+                                            <i class='menu-arrow'></i>
+                                        </a>
+                                        <div class='submenu' style="margin-left: auto; margin-right: 0;">
+                                            <ul class='submenu-item'>
+                                                <li class='nav-item'><a class='nav-link' href='commandes.aspx'>Prise des Commandes</a></li>
+                                                <li class='nav-item'><span class="req">________________________</span></li>
+
+                                                <li class='nav-item'><a class='nav-link' href='colisages.aspx'>Colisages</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='factures.aspx'>Factures</a></li>
+
+                                                <li class='nav-item'><span class="req">________________________</span></li>
+
+                                                <li class='nav-item'><a class='nav-link' href='formules.aspx'>Formules / Réglements</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='avoirs.aspx'>Avoirs</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='dums.aspx'>Dum</a></li>
+                                                <li class='nav-item'><span class="req">________________________</span></li>
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+
+
+                                    <li class='nav-item'>
+                                        <a href='#' class='nav-link'>
+                                            <i class='mdi mdi-monitor-dashboard menu-icon'></i>
+                                            <span class='menu-title'>Paramètres</span>
+                                            <i class='menu-arrow'></i>
+                                        </a>
+                                        <div class='submenu'>
+                                            <ul class='submenu-item'>
+                                                <li class='nav-item'><a class='nav-link' href='types.aspx'>Espèce</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='varietes.aspx'>Variétés</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='couleurs.aspx'>Liste Couleurs</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='articles.aspx'>Embalage</a></li>
+                                                <li class='nav-item'><span class="req">________________________</span></li>
+
+                                                <li class='nav-item'><a class='nav-link' href='clients.aspx'>Client</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='transitaires.aspx'>Transitaire</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='transporteurs.aspx'>Transporteur</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='pays.aspx'>Pays</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='villes.aspx'>Villes</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='devises.aspx'>Devises</a></li>
+                                                <li class='nav-item'><span class="req">________________________</span></li>
+
+                                                <li class='nav-item'><a class='nav-link' href='calibre.aspx'>Calibre</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='bureaux.aspx'>Bureaux de dédouanement</a></li>
+                                                <li class='nav-item'><a class='nav-link' href='compagnies.aspx'>Compagnies aériennes</a></li>
+
+                                                <li class='nav-item'><span class="req">________________________</span></li>
+                                                <li class='nav-item'><a class='nav-link' href='utilisateurs.aspx'>Utilisateurs</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>--%>
+                                </ul>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- partial -->
+            <div class="container-fluid page-body-wrapper">
+                <div class="main-panel">
+                    <div class="content-wrapper">
+
+                        <%--<div class="page-header">
+                            <h3 class="page-title">Form elements</h3>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Form elements </li>
+                                </ol>
+                            </nav>
+                        </div>--%>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+    <!-- plugins:js -->
+    <script src="./assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="./assets/vendors/select2/select2.min.js"></script>
+    <script src="./assets/vendors/typeahead.js/typeahead.bundle.min.js"></script>
+
+    <script src="./assets/vendors/jquery-bar-rating/jquery.barrating.min.js"></script>
+    <script src="./assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="./assets/vendors/flot/jquery.flot.js"></script>
+    <script src="./assets/vendors/flot/jquery.flot.resize.js"></script>
+    <script src="./assets/vendors/flot/jquery.flot.categories.js"></script>
+    <script src="./assets/vendors/flot/jquery.flot.fillbetween.js"></script>
+    <script src="./assets/vendors/flot/jquery.flot.stack.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="./assets/js/off-canvas.js"></script>
+    <script src="./assets/js/hoverable-collapse.js"></script>
+    <script src="./assets/js/misc.js"></script>
+    <script src="./assets/js/settings.js"></script>
+    <script src="./assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="./assets/js/file-upload.js"></script>
+    <script src="./assets/js/typeahead.js"></script>
+    <script src="./assets/js/select2.js"></script>
+
+
+    <!-- End custom js for this page -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="./assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+    <style>
+        .content-wrapper {
+            padding: 0px !important;
+            padding-top: 15px !important;
+        }
+
+        .page-header {
+            margin: 0px !important;
+        }
+
+        .card-body {
+            padding: 15px !important;
+        }
+
+        .table th, .table td {
+            padding: 5px !important;
+        }
+
+        .btn-sm {
+            padding: 2.5px !important;
+        }
+
+        .ui-autocomplete {
+            top: 45px;
+            left: 15px;
+            max-height:300px;
+            overflow-y:scroll;
+        }
+
+        .modal-large {
+            max-width: 80%;
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+
+
+    <script>
+
+        function listSearch(txtSearch, hdValue, baseDiv, webFunc) {
+
+            $("[id$=" + txtSearch + "]").autocomplete({
+                source: function (request, response) {
+
+                    $.ajax({
+                        url: "" + webFunc + "",
+                        data: "{ 'prefix': '" + request.term + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    label: item.split('$')[1],
+                                    val: item.split('$')[0]
+                                }
+                            }))
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    $("[id$=" + hdValue + "]").val(i.item.val);
+                },
+                minLength: 1,
+                appendTo: '#' + baseDiv
+            });
+        }
+        //
+        function listSearchByCondition(hdValueCondition, txtSearch, hdValue, baseDiv, webFunc) {
+
+            $("[id$=" + txtSearch + "]").autocomplete({
+                source: function (request, response) {
+
+                    $.ajax({
+                        url: "" + webFunc + "",
+                        data: "{ 'prefix': '" + request.term + "','condition' : '" + $('#' + hdValueCondition).val() + "' }",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    label: item.split('$')[1],
+                                    val: item.split('$')[0]
+                                }
+                            }))
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    $("[id$=" + hdValue + "]").val(i.item.val);
+                },
+                minLength: 1,
+                appendTo: '#' + baseDiv
+            });
+
+
+
+
+        }
+        //
+        function listSearchByConditionPlusInfo(hdValueCondition, txtSearch, hdValue, baseDiv, webFunc, jsFunc) {
+
+            $("[id$=" + txtSearch + "]").autocomplete({
+                source: function (request, response) {
+
+                    $.ajax({
+                        url: "" + webFunc + "",
+                        data: "{ 'prefix': '" + request.term + "','condition' : '" + $('#' + hdValueCondition).val() + "' }",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    label: item.split('$')[1],
+                                    val: item.split('$')[0]
+                                }
+                            }))
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    jsFunc(i.item.val);
+                },
+                minLength: 1,
+                appendTo: '#' + baseDiv
+            });
+
+
+
+
+        }
+
+
+        //split by '!' the condition values
+        function listSearchByMultiConditionPlusInfo(hdvalueCond1, hdvaleurCond2, txtSearch, hdValue, baseDiv, webFunc, jsFunc) {
+
+            $("[id$=" + txtSearch + "]").autocomplete({
+
+
+                source: function (request, response) {
+                    var conditions = $('#' + hdvalueCond1).val() + '!' + $('#' + hdvaleurCond2).val();
+                    $.ajax({
+                        url: "" + webFunc + "",
+                        data: "{ 'prefix': '" + request.term + "','condition' : '" + conditions + "' }",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    label: item.split('$')[1],
+                                    val: item.split('$')[0]
+                                }
+                            }))
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    jsFunc(i.item.val);
+                },
+                minLength: 1,
+                appendTo: '#' + baseDiv
+            });
+
+
+
+
+        }
+
+        $(document).ready(function () {
+            $('.form-control').attr("autocomplete", "off");
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="ContentFootHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

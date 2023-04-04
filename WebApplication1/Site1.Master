@@ -1,0 +1,435 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="CSA_Clementine1.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SCA la Clementine</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png" />
+    <link rel="stylesheet" href="./menu/vendor/owl-carousel/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="./menu/vendor/owl-carousel/css/owl.theme.default.min.css" />
+    <link href="./menu/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet" />
+    <link href="./menu/css/style.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style>
+        .req {
+            color: red;
+        }
+
+        .card-header {
+            padding: 2px;
+            padding-left: 10px;
+        }
+
+            .card-header > h3 {
+                margin: 0px;
+            }
+
+        .card-footer {
+            padding: 2px;
+            padding-left: 10px;
+        }
+
+        .breadcrumb {
+            margin: 5px;
+        }
+
+        .row {
+            margin-bottom: 5px;
+        }
+
+        .lbl-numerique {
+            display: block;
+            text-align: right;
+        }
+
+        select.form-control {
+            color: black;
+        }
+
+        .content-wrapper {
+            padding: 0px !important;
+            padding-top: 15px !important;
+        }
+
+        .page-header {
+            margin: 0px !important;
+        }
+
+        .card-body {
+            padding: 15px !important;
+        }
+
+        .table th, .table td {
+            padding: 5px !important;
+        }
+
+        .btn-sm {
+            padding: 2.5px !important;
+        }
+
+        .ui-autocomplete {
+            top: 35px !important;
+            left: 15px !important;
+            max-height: 300px !important;
+            overflow-y: scroll !important;
+        }
+
+        .modal-large {
+            max-width: 80%;
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!--*******************
+        Preloader start
+    ********************-->
+        <div id="preloader">
+            <div class="sk-three-bounce">
+                <div class="sk-child sk-bounce1"></div>
+                <div class="sk-child sk-bounce2"></div>
+                <div class="sk-child sk-bounce3"></div>
+            </div>
+        </div>
+        <!--*******************
+        Preloader end
+    ********************-->
+
+
+        <!--**********************************
+        Main wrapper start
+    ***********************************-->
+        <div id="main-wrapper">
+
+            <!--**********************************
+            Nav header start
+        ***********************************-->
+            <div class="nav-header">
+                <a href="accueil.aspx" class="brand-logo">
+                    
+<%--                    <span class="font-12 d-block font-weight-light">SCA la Clementine </span>--%>
+                </a>
+
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="line"></span><span class="line"></span><span class="line"></span>
+                    </div>
+                </div>
+            </div>
+            <!--**********************************
+            Nav header end
+        ***********************************-->
+
+            <!--**********************************
+            Header start
+        ***********************************-->
+            <div class="header">
+                <div class="header-content">
+                    <nav class="navbar navbar-expand">
+                        <div class="collapse navbar-collapse justify-content-between">
+                            <div class="header-left">
+                                <a href="accueil.aspx" class="brand-logo">
+                                    
+                                    <span class="font-12 d-block font-weight-light">EGBS </span>
+                                </a>
+                            </div>
+
+                            <ul class="navbar-nav header-right">
+                                <li class="nav-item dropdown notification_dropdown">
+                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                        <i class="mdi mdi-bell"></i>
+                                        <div class="pulse-css"></div>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <ul class="list-unstyled">
+                                        </ul>
+                                        <a class="all-notification" href="#">See all notifications <i
+                                            class="ti-arrow-right"></i></a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown header-profile">
+                                    <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                        <i class="mdi mdi-account"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <p class="text-black font-weight-semibold m-0">
+                                            <asp:Label runat="server" ID="txtEntete" Text="-" />
+                                        </p>
+                                        <a href="authentification.aspx" class="dropdown-item">
+                                            <i class="icon-key"></i>
+                                            <span class="ml-2">Logout </span>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+            <!--**********************************
+            Sidebar start
+        ***********************************-->
+            
+            <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+            <div class="content-body" style="min-height: 920px;">
+                <div class="container-fluid">
+
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+            <!--**********************************
+            Footer start
+        ***********************************-->
+            <div class="footer">
+                <div class="copyright">
+                    <%--<p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">SDI</a> 2021</p>--%>
+                </div>
+            </div>
+            <!--**********************************
+            Footer end
+        ***********************************-->
+
+            <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+            <!--**********************************
+           Support ticket button end
+        ***********************************-->
+        </div>
+
+
+    </form>
+
+
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="./menu/vendor/global/global.min.js"></script>
+    <script src="./menu/js/quixnav-init.js"></script>
+    <script src="./menu/js/custom.min.js"></script>
+
+
+    <!-- Vectormap -->
+    <script src="./menu/vendor/raphael/raphael.min.js"></script>
+    <script src="./menu/vendor/morris/morris.min.js"></script>
+
+
+    <script src="./menu/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="./menu/vendor/chart.js/Chart.bundle.min.js"></script>
+
+    <script src="./menu/vendor/gaugeJS/dist/gauge.min.js"></script>
+
+    <!--  flot-chart js -->
+    <script src="./menu/vendor/flot/jquery.flot.js"></script>
+    <script src="./menu/vendor/flot/jquery.flot.resize.js"></script>
+
+    <!-- Owl Carousel -->
+    <script src="./menu/vendor/owl-carousel/js/owl.carousel.min.js"></script>
+
+    <!-- Counter Up -->
+    <script src="./menu/vendor/jqvmap/js/jquery.vmap.min.js"></script>
+    <script src="./menu/vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+    <script src="./menu/vendor/jquery.counterup/jquery.counterup.min.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="./assets/js/jquery-ui-1.9.2.custom.min.js"></script>
+
+    <script src="./menu/js/dashboard/dashboard-1.js"></script>
+
+
+
+    <script>
+
+
+        function listSearch(txtSearch, hdValue, baseDiv, webFunc) {
+
+            $("[id$=" + txtSearch + "]").autocomplete({
+                source: function (request, response) {
+
+                    $.ajax({
+                        url: "" + webFunc + "",
+                        data: "{ 'prefix': '" + request.term + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    label: item.split('$')[1],
+                                    val: item.split('$')[0]
+                                }
+                            }))
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    $("[id$=" + hdValue + "]").val(i.item.val);
+                },
+                minLength: 1,
+                appendTo: '#' + baseDiv
+            });
+        }
+        //
+        function listSearchByCondition(hdValueCondition, txtSearch, hdValue, baseDiv, webFunc) {
+
+            $("[id$=" + txtSearch + "]").autocomplete({
+                source: function (request, response) {
+
+                    $.ajax({
+                        url: "" + webFunc + "",
+                        data: "{ 'prefix': '" + request.term + "','condition' : '" + $('#' + hdValueCondition).val() + "' }",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    label: item.split('$')[1],
+                                    val: item.split('$')[0]
+                                }
+                            }))
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    $("[id$=" + hdValue + "]").val(i.item.val);
+                },
+                minLength: 1,
+                appendTo: '#' + baseDiv
+            });
+
+
+
+
+        }
+        //
+        function listSearchByConditionPlusInfo(hdValueCondition, txtSearch, hdValue, baseDiv, webFunc, jsFunc) {
+
+            $("[id$=" + txtSearch + "]").autocomplete({
+                source: function (request, response) {
+
+                    $.ajax({
+                        url: "" + webFunc + "",
+                        data: "{ 'prefix': '" + request.term + "','condition' : '" + $('#' + hdValueCondition).val() + "' }",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    label: item.split('$')[1],
+                                    val: item.split('$')[0]
+                                }
+                            }))
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    jsFunc(i.item.val);
+                },
+                minLength: 1,
+                appendTo: '#' + baseDiv
+            });
+
+
+
+
+        }
+
+
+        //split by '!' the condition values
+        function listSearchByMultiConditionPlusInfo(hdvalueCond1, hdvaleurCond2, txtSearch, hdValue, baseDiv, webFunc, jsFunc) {
+
+            $("[id$=" + txtSearch + "]").autocomplete({
+
+
+                source: function (request, response) {
+                    var conditions = $('#' + hdvalueCond1).val() + '!' + $('#' + hdvaleurCond2).val();
+                    $.ajax({
+                        url: "" + webFunc + "",
+                        data: "{ 'prefix': '" + request.term + "','condition' : '" + conditions + "' }",
+                        dataType: "json",
+                        type: "POST",
+                        contentType: "application/json; charset=utf-8",
+                        success: function (data) {
+                            response($.map(data.d, function (item) {
+                                return {
+                                    label: item.split('$')[1],
+                                    val: item.split('$')[0]
+                                }
+                            }))
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                },
+                select: function (e, i) {
+                    jsFunc(i.item.val);
+                },
+                minLength: 1,
+                appendTo: '#' + baseDiv
+            });
+
+
+
+
+        }
+
+        $(document).ready(function () {
+            $('.form-control').attr("autocomplete", "off");
+        });
+    </script>
+
+    <asp:ContentPlaceHolder ID="ContentFootHolder2" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
